@@ -1,151 +1,83 @@
-# 👾 Dicoding Community Network (DCN) — Garut Chapter
+# 👾 Dicoding Community Network (DCN) - Garut Chapter
 
-Website landing page resmi untuk komunitas **Dicoding Community Network (DCN) Garut Chapter**.  
-Website ini berfungsi sebagai pusat informasi komunitas, leaderboard anggota, serta portal pelaporan progres belajar.
+Website Landing Page resmi untuk komunitas Dicoding Community Network (DCN) Garut Chapter. Website ini berfungsi sebagai pusat informasi, papan peringkat (leaderboard) anggota, dan portal untuk melaporkan progres belajar.
 
-Dibangun menggunakan **React** dengan konsep desain **High-Bit Retro Arcade / Pixel Art** yang interaktif dan responsif.
-
----
+Dibuat dengan **React** dan menggunakan tema **High-Bit Retro Arcade/Pixel Art** yang interaktif.
 
 ## 🌟 Fitur Utama
 
-- **Informasi Komunitas**  
-  Penjelasan mengenai apa itu DCN dan peran Contributor di DCN Garut Chapter.
-
-- **Info Kelas / Prodi Wajib**  
-  Daftar kelas Dicoding atau program studi yang perlu diselesaikan oleh anggota.
-
-- **Leaderboard Manual**  
-  Papan peringkat berbasis poin yang dihitung dari aktivitas dan progres anggota.
-
-- **Submit Progress**  
-  Tautan langsung ke Google Form untuk pengumpulan bukti kelulusan kelas.
-
-- **Tema Interaktif**  
-  Desain Pixel Art dengan animasi, efek glow/glitch visual, dan tampilan responsif.
-
----
+* **Informasi Komunitas**: Penjelasan mengenai apa itu DCN dan peran Contributor.
+* **Info Kelas/Prodi**: Daftar materi atau program studi wajib yang perlu diselesaikan anggota.
+* **Leaderboard Manual**: Papan peringkat berbasis poin yang dihitung dari aktivitas anggota.
+* **Submit Progress**: Tautan langsung ke Google Form untuk pengumpulan bukti kelulusan kelas.
+* **Tema Interaktif**: Desain Pixel Art dengan animasi, efek suara visual (glitch/glow), dan responsif.
 
 ## 🚀 Cara Menjalankan Project
 
-Pastikan Anda telah menginstal **Node.js** di komputer Anda.
+Pastikan Anda sudah menginstal [Node.js](https://nodejs.org/) di komputer Anda.
 
-### 1. Clone atau Download Repository
-```bash
-git clone https://github.com/username/dcn-garut-landing-page.git
-atau unduh ZIP lalu ekstrak ke komputer Anda.
+1.  **Clone atau Download** repository ini.
+2.  Buka terminal/command prompt di folder project.
+3.  Instal dependensi yang dibutuhkan:
+    ```bash
+    npm install
+    ```
+    *(Jika terjadi error dependensi, coba gunakan `npm install --legacy-peer-deps`)*
+4.  Jalankan aplikasi dalam mode development:
+    ```bash
+    npm start
+    ```
+5.  Buka [http://localhost:3000](http://localhost:3000) di browser Anda.
 
-2. Masuk ke Folder Project
-bash
-Copy code
-cd dcn-garut-landing-page
-3. Instal Dependencies
-bash
-Copy code
-npm install
-Jika terjadi error dependensi, gunakan:
+## 🛠️ Panduan Admin (Update Data)
 
-bash
-Copy code
-npm install --legacy-peer-deps
-4. Jalankan Mode Development
-bash
-Copy code
-npm start
-5. Buka di Browser
-Akses aplikasi di:
+Anda tidak perlu database khusus untuk mengubah konten utama. Semua data tersimpan di dalam file `src/App.js`. Ikuti langkah ini untuk mengupdate informasi:
 
-arduino
-Copy code
-http://localhost:3000
-🛠️ Panduan Admin (Update Data)
-Website ini tidak menggunakan database.
-Semua data utama dapat diperbarui langsung melalui file:
+### 1. Mengupdate Leaderboard
+Buka file `src/App.js` dan cari variabel `leaderboardData`. Tambahkan atau ubah data di dalam kurung siku `[]`.
 
-css
-Copy code
-src/App.js
-1. Update Leaderboard
-Cari variabel leaderboardData lalu ubah atau tambahkan data anggota.
-
-javascript
-Copy code
-// Contoh format data leaderboard
+```javascript
+// Contoh Format Data
 const leaderboardData = [
-  {
-    rank: 1,
-    name: "Nama Member",
-    points: 1500,
+  { 
+    rank: 1, 
+    name: "Nama Member", 
+    points: 1500, 
     prodi: "Teknik Informatika" // atau "Kelas yang diselesaikan"
   },
-  {
-    rank: 2,
-    name: "Nama Member Lain",
-    points: 1200,
-    prodi: "Sistem Informasi"
-  }
-];
-2. Update Daftar Kelas / Prodi Wajib
-Cari variabel requiredClasses lalu sesuaikan daftar kelas.
+  // ... tambahkan member lain di sini
+]
+```
+2. Mengupdate Daftar Kelas/Prodi
+Buka file src/App.js dan cari variabel requiredClasses.
 
-javascript
-Copy code
+```javascript
+//
 const requiredClasses = [
   "Memulai Pemrograman dengan Kotlin",
   "Belajar Membuat Aplikasi Android untuk Pemula",
-  "Belajar Dasar Pemrograman Web"
+  // ... tambahkan kelas lain di sini
 ];
-3. Ganti Link Google Form
-Untuk mengubah tujuan tombol Upload Bukti Progress, ubah nilai variabel googleFormLink.
+```
+3. Mengganti Link Google Form
+Untuk mengubah tujuan tombol "Upload Bukti Progress", cari variabel googleFormLink di src/App.js.
 
-javascript
-Copy code
-const googleFormLink = "https://forms.google.com/link-form-baru-anda";
+```javascript
+const googleFormLink = "[https://forms.google.com/link-form-baru-anda](https://forms.google.com/link-form-baru-anda)";
+```
 🎨 Kustomisasi Tema
-Seluruh style diatur melalui file:
+Gaya tampilan (CSS) sepenuhnya diatur di dalam file src/App.css.
 
-css
-Copy code
-src/App.css
-Elemen yang Bisa Dikustomisasi
-Warna Tema
-Ubah nilai variabel pada :root
+Warna: Ubah variabel :root di bagian atas file untuk mengganti palet warna (misal: --pixel-green atau --bg-color).
 
-css
-Copy code
-:root {
-  --pixel-green: #00ff9c;
-  --bg-color: #0d0d0d;
-}
-Font
-
-Judul: Press Start 2P
-
-Teks: VT323
-
-Efek Visual
-Glow, glitch, pixel border, dan hover animation dapat diatur langsung dari file CSS.
+Font: Project ini menggunakan font Google Press Start 2P (judul) dan VT323 (teks isi).
 
 📦 Build untuk Production
-Untuk membuat versi siap deploy (Vercel, Netlify, GitHub Pages, dll), jalankan:
+Jika ingin mengunggah website ke hosting (seperti Vercel, Netlify, atau GitHub Pages), jalankan perintah:
 
-bash
-Copy code
+```Bash
 npm run build
-Folder build/ akan berisi file statis siap diunggah ke layanan hosting.
+```
+Perintah ini akan membuat folder build berisi file statis yang siap di-deploy.
 
-🤝 Kontribusi
-Kontribusi terbuka untuk seluruh anggota DCN Garut Chapter.
-
-Ide fitur baru
-
-Pengembangan UI/UX
-
-Penyempurnaan dokumentasi
-
-Optimalisasi performa
-
-Silakan buat Pull Request atau Issue bila memiliki masukan.
-
-📣 Dicoding Community Network — Garut Chapter
-Let’s Code and Grow Together! 🚀
+Dicoding Community Network - Garut Chapter Let's Code and Grow Together! 🚀
